@@ -329,7 +329,14 @@ suitable to advance to the next module while finishing this one'
 'the student has low performance, it is difficult for him to understand the subject, 
 but he is participatory, responsible and inquiring'
 );
-
+select students.student_id, users.name, users.email, users.age, courses.title, students_courses.percent_complete 
+from students 
+inner join users 
+on students.student_id=users.user_id
+inner join students_courses
+on students_courses.students_id = students.student_id
+inner join courses
+on courses.course_id = students_courses.course_id
 
 
 
